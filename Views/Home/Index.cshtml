@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+@model List<WEB_QLBN.Models.Benhnhan>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8"/>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container mt-3">
+        <h2 class="text-center">Quản lý bệnh nhân</h2>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th>Họ tên</th>
+                    <th>Giới tính</th>
+                    <th>SĐT</th>
+                    <th>Địa chỉ</th>
+                    <th>Thời gian</th>
+                    <th>Phương pháp điều trị</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.name</td>
+                        <td>@item.gender</td>
+                        <td>@item.phone</td>
+                        <td>@item.address</td>
+                        <td>@item.time.ToString("dd/MM/yyyy")</td>
+                        <td>@item.ppdt</td>
+                        <td class="align-middle d-flex justify-content-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="@item.id">
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
